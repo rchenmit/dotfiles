@@ -27,6 +27,11 @@
 (setq show-trailing-whitespace t)
 (setq suggest-key-bindings t)
 (setq vc-follow-symlinks t)
+(setq default-major-mode 'text-mode)            ; Default mode is text-mode.
+(setq text-mode-hook
+      '(lambda () (auto-fill-mode 0)))  ; Enable auto-fill-mode whenever using text-mode.
+
+(setq delete-auto-save-files t) ; Delete unnecessary auto-save files
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -38,6 +43,8 @@
  '(diff-added ((t (:foreground "cyan"))))
  '(flymake-errline ((((class color) (background light)) (:background "Red"))))
  '(font-lock-comment-face ((((class color) (min-colors 8) (background light)) (:foreground "red"))))
+ '(font-lock-builtin-face ((t (:foreground "yellow"))))
+ '(font-lock-keyword-face ((t (:foreground "cyan"))))
  '(fundamental-mode-default ((t (:inherit default))))
  '(highlight ((((class color) (min-colors 8)) (:background "white" :foreground "magenta"))))
  '(isearch ((((class color) (min-colors 8)) (:background "yellow" :foreground "black"))))
@@ -47,6 +54,30 @@
  '(show-paren-match ((((class color) (background light)) (:background "black"))))
  '(vertical-border ((t nil)))
 )
+
+;; displays the time in the status bar
+(display-time)
+
+;; Emacs will not automatically add new lines
+(setq next-line-add-newlines nil)
+
+;; [Home] & [End] key should take you to beginning and end of lines..
+(global-set-key [home] 'beginning-of-line)
+(global-set-key [end] 'end-of-line)
+
+;; Set up the keyboard so the <delete> key on both the regular keyboard
+;; and the keypad delete the character under the cursor and to the right
+;; under X, instead of the default, backspace behavior.
+(global-set-key [delete] 'delete-char)
+
+; Delete unnecessary auto-save files
+(setq delete-auto-save-files t)
+
+;; Changes all yes/no questions to y/n type 
+(fset 'yes-or-no-p 'y-or-n-p)
+
+
+
 
 ;; ------------
 ;; -- Macros --
@@ -75,3 +106,18 @@
 (require 'jade-mode)    
 (add-to-list 'auto-mode-alist '("\\.styl$" . sws-mode))
 (add-to-list 'auto-mode-alist '("\\.jade$" . jade-mode))
+
+
+;; ---------------------------
+;; -- Python Mode configuration --
+;; ---------------------------
+(add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
+(add-to-list 'interpreter-mode-alist '("python" . python-mode))
+
+
+
+;; ---------------------------
+;; -- Python Mode configuration --
+;; ---------------------------
+(add-to-list 'auto-mode-alist '("\\.R$" . R-mode))
+
