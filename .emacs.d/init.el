@@ -121,3 +121,10 @@
 ;; ---------------------------
 (add-to-list 'auto-mode-alist '("\\.R$" . R-mode))
 
+
+;;---------------------------                                                                                                                                                                         
+;; -- Transient Mark Mode                                                                                                                                                                             
+;;------                                                                                                                                                                                              
+(transient-mark-mode t)
+
+
