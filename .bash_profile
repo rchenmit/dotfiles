@@ -64,3 +64,7 @@ export PATH=/usr/local/sbin:$PATH
 export PATH=$HOME/bin:$PATH
 export PYTHONSTARTUP=~/.pystartup
 export PYTHONPATH=~/python-startup
+
+
+## enable 256 colors under SCREEN mode
+export TERM='xterm-color'
