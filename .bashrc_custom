@@ -1,2 +1,8 @@
 export TERM='xterm-color'
 
+#PS1='[\u@\h \W]\$ '  # Default terminal colors
+PS1='\[\e[1;33m\][\u@\h \W]\$\[\e[0m\]'
+
+export LSCOLORS=gxfxCxDxBxegedabagaced #LS colors
+
+
